@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coin Flip Simulation</title>
+    <script>
+        function flipCoin() {
+            let times = document.getElementById("numFlips").value;
+            times = parseInt(times, 10);
+
+            if (isNaN(times) || times <= 0) {
+                alert("Please enter a valid positive number.");
+                return;
+            }
+
+            let heads = 0;
+            let tails = 0;
+
+            for (let i = 0; i < times; i++) {
+                if (Math.random() < 0.5) {
+                    heads++;
+                } else {
+                    tails++;
+                }
+            }
+
+            document.getElementById("result").innerHTML =
+                `Total flips: ${times}<br>Heads: ${heads}<br>Tails: ${tails}`;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Coin Flip Simulation</h1>
+    <input type="number" id="numFlips" placeholder="Enter number of flips">
+    <button onclick="flipCoin()">Flip Coin</button>
+    <p id="result"></p>
+</body>
+
+</html>
