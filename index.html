@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Coin Flip Simulation</title>
     <script>
@@ -24,18 +23,20 @@
                 }
             }
 
-            document.getElementById("result").innerHTML =
-                `Total flips: ${times}<br>Heads: ${heads}<br>Tails: ${tails}`;
+            let headsPercentage = ((heads / times) * 100).toFixed(2);
+            let tailsPercentage = ((tails / times) * 100).toFixed(2);
+
+            document.getElementById("result").innerHTML = 
+                `Total flips: ${times}<br>` +
+                `Heads: ${heads} (${headsPercentage}%)<br>` +
+                `Tails: ${tails} (${tailsPercentage}%)`;
         }
     </script>
 </head>
-
 <body>
-
     <h1>Coin Flip Simulation</h1>
     <input type="number" id="numFlips" placeholder="Enter number of flips">
     <button onclick="flipCoin()">Flip Coin</button>
     <p id="result"></p>
 </body>
-
 </html>
